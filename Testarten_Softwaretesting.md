@@ -7,9 +7,6 @@ unterschiedliche Aspekte: **Testebene, Testziel oder Anlass**.
 
 ## Nach Testebene
 
-  -----------------------------------------------------------------------
-  Testart                             Kurzbeschreibung
-  ----------------------------------- -----------------------------------
   **Unit-Test / Komponententest**     Testet eine einzelne, möglichst
                                       isolierte Einheit wie Funktion,
                                       Methode, Klasse oder Modul.
@@ -29,13 +26,11 @@ unterschiedliche Aspekte: **Testebene, Testziel oder Anlass**.
   **Akzeptanztest / Abnahmetest**     Prüft, ob das System die fachlichen
                                       Anforderungen erfüllt und
                                       abgenommen werden kann.
+
   -----------------------------------------------------------------------
 
 ## Nach Testziel
 
-  -----------------------------------------------------------------------
-  Testart                             Kurzbeschreibung
-  ----------------------------------- -----------------------------------
   **Funktionaler Test**               Prüft, ob eine geforderte Funktion
                                       das fachlich erwartete Ergebnis
                                       liefert.
@@ -76,13 +71,11 @@ unterschiedliche Aspekte: **Testebene, Testziel oder Anlass**.
                                       unerwarteten Eingaben oder
                                       problematischen
                                       Umgebungsbedingungen verhält.
+
   -----------------------------------------------------------------------
 
 ## Nach Anlass bzw. Vorgehensweise
 
-  -----------------------------------------------------------------------
-  Testart                             Kurzbeschreibung
-  ----------------------------------- -----------------------------------
   **Regressionstest**                 Prüft nach Änderungen, ob bereits
                                       funktionierende Eigenschaften
                                       weiterhin funktionieren.
@@ -104,6 +97,7 @@ unterschiedliche Aspekte: **Testebene, Testziel oder Anlass**.
   **Sanity-Test**                     Kurzer, fokussierter Test, ob eine
                                       konkrete Änderung grundsätzlich
                                       plausibel funktioniert.
+
   -----------------------------------------------------------------------
 
 ## Einordnung
