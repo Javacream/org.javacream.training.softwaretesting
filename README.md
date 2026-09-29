@@ -5,6 +5,8 @@
   * eMail: rainer.sawitzki@gmail.com
    
 * [Digitales Flipchart](https://docs.google.com/presentation/d/1vOxRESacoikK5c24WLmRklH-mTt6LYx7TffH3B4KI2c/edit?usp=sharing)
+* [Digitales Flipchart CI/CD](https://docs.google.com/presentation/d/1hq4B1cLVpTqVZ5hbI3ikkBZQb8SP--2YfrCYSjEnq2Q/edit?usp=sharing)
+* [Digitales Flipchart Docker Überblick](https://docs.google.com/presentation/d/1oLqQo68XXXHWK3i2wy9FNNTg2xrPQUnMZrIegTm6SFo/edit?usp=sharing)
 
 * Seminarzeiten
   * 12 Unterrichtseinheiten mit jeweils etwa 90 Minuten
