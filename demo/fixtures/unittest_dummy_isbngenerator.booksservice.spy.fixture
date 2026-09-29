@@ -1,0 +1,17 @@
+database_mock = DatabaseMock()
+database_mock.expect(...).and_return(...)
+isbngeneratorService = Dummy(IsbnGeneratorService)
+booksService = BooksService(database_mock, isbngeneratorService)
+booksService = NetworkSimulator(booksService)
+# Systemtest, es werden aber nur die Sequenzen des BooksService getestst (-> 'Unittest')
+
+books_service_test_case_1:
+    isbn1 = bookService.create_book('demo')
+    assert_not_null(isbn1)
+    # isbn2 = bookService.create_book('demo2')
+    # assert_not_null(isbn2)
+    # assert_not_same(isbn1, isbn2)
+
+# Interpretation des Testfehlschlags
+
+"Der BooksService enthält einen Fehler"

@@ -11,10 +11,13 @@ python/
 ├── test_users_beeceptor.py
 ├── test_users_local_mockserver.py
 ├── test_users_integration.py
+├── test_users_integration_spy.py
+├── test_users_spy.py
 ├── requirements.txt
 ├── README.md
 └── details/
-    └── http-mock.md
+    ├── http-mock.md
+    └── spy.md
 ```
 
 ## 1. Unit-Test mit `unittest.mock`
@@ -64,6 +67,47 @@ Der Test ist bewusst **sehr pauschal**. Er prüft nur, ob mindestens ein User ge
 
 Konkrete Namen, IDs oder eine feste Anzahl von Datensätzen werden nicht vorausgesetzt, weil die Daten des externen Dienstes nicht unter Kontrolle des Tests stehen. Dadurch besitzt der Test eine hohe technische Realitätsnähe, aber nur eine geringe fachliche Prüftiefe bezüglich der gelieferten Daten.
 
+## 5. Integrationstest mit Spy
+
+`test_users_integration_spy.py` führt einen **echten HTTP-Aufruf** gegen JSONPlaceholder aus, beobachtet `requests.get()` aber zusätzlich mit einem Spy. Jeder Aufruf wird in `spy-http-calls.log` geschrieben und danach an das originale `requests.get()` delegiert.
+
+Der **Mock** im Unit-Test ersetzt die Abhängigkeit und liefert selbst die Antwort. Der **Spy** beobachtet die Abhängigkeit, lässt die echte Funktion aber weiterarbeiten.
+
+Da JSONPlaceholder weiterhin tatsächlich angesprochen wird, bleibt dies ein Integrationstest mit denselben externen Abhängigkeiten und derselben bewusst pauschalen Prüfung der Antwortdaten.
+
+Details: [`details/spy.md`](details/spy.md)
+
+## Generisches Spy-Beispiel
+
+`test_users_spy.py` verwendet eine generische Hilfsfunktion:
+
+```python
+spy = create_spy(get_users, "spy-calls.log")
+users = spy()
+```
+
+`create_spy()` erzeugt einen `Mock` mit einer eigenen `side_effect`-Funktion. Diese ruft die übergebene Originalfunktion auf und protokolliert bei jedem Aufruf:
+
+- den Namen der Funktion,
+- Positionsargumente,
+- Keyword-Argumente,
+- den tatsächlichen Rückgabewert.
+
+Ein Logeintrag sieht beispielsweise so aus:
+
+```text
+Function: get_users
+Args: ()
+Kwargs: {}
+Return value: [User(id=1, name='Leanne Graham', ...), ...]
+```
+
+Der zurückgegebene Spy bleibt ein normales `Mock`-Objekt. Deshalb kann der Test zusätzlich mit `spy.assert_called_once_with()` prüfen, wie der Spy verwendet wurde.
+
+Der reale HTTP-Aufruf wird weiterhin ausgeführt. Der Spy beobachtet die Funktion, ersetzt ihr Ergebnis aber nicht.
+
+Details: [`details/spy.md`](details/spy.md)
+
 ## Vergleich
 
 | Eigenschaft | Unit-Mock | Beeceptor | Lokaler MockServer | JSONPlaceholder |
@@ -89,4 +133,6 @@ python -m unittest test_users_unit.py
 python -m unittest test_users_beeceptor.py
 python -m unittest test_users_local_mockserver.py
 python -m unittest test_users_integration.py
+python -m unittest test_users_integration_spy.py
+python -m unittest test_users_spy.py
 ```

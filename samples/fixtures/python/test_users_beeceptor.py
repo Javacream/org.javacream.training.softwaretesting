@@ -2,7 +2,7 @@ import unittest
 from users import get_users, User
 
 # Durch die tatsächlich bei Beeceptor angelegte URL ersetzen.
-BEECEPTOR_URL = "https://DEIN-ENDPOINT.free.beeceptor.com/users"
+BEECEPTOR_URL = "https://softwaretesting-users.free.beeceptor.com/users"
 
 class TestGetUsersBeeceptor(unittest.TestCase):
     def test_get_users_from_beeceptor(self):
