@@ -1,0 +1,11 @@
+class Dummy{
+    generic(method){
+        if (method.return_type=='string'){
+            return "Hugo"
+        }
+        else if (method.return_type=='integer'){
+            return 42
+        }
+        ...
+    }
+}

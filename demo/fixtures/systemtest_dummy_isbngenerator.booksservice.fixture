@@ -11,3 +11,6 @@ books_service_test_case_1:
     # assert_not_null(isbn2)
     # assert_not_same(isbn1, isbn2)
 
+# Interpretation des Testfehlschlags
+
+"Der BooksService enthält einen Fehler"

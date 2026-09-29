@@ -15,3 +15,9 @@ books_service_test_case_1:
     # möglich, aber eh klar: assert_not_same(isbn1, isbn2)
     assert_call_count(isbngeneratorServiceMock, 2)
 
+# Interpretation des Testfehlschlags
+
+assert_equal(isbn) ->
+    "Der BooksService enthält einen Fehler"
+assert_call_count
+    "Der BooksService entspricht nicht dem im Modell festgelegten Ablauf"
