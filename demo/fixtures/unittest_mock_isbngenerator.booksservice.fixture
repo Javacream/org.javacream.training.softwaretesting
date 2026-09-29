@@ -1,0 +1,24 @@
+database_mock = DatabaseMock()
+database_mock.expect(...).and_return(...)
+isbngeneratorServiceMock = Mock(IsbnGeneratorService)
+isbngeneratorServiceMock.expect(create_isbn).and_return('ISBN1')
+isbngeneratorServiceMock.expect(create_isbn).and_return('ISBN2')
+isbngeneratorServiceMock.replay()
+booksService = BooksService(database_mock, isbngeneratorServiceMock)
+
+# Systemtest, es werden aber nur die Sequenzen des BooksService getestst (-> 'Unittest')
+
+books_service_test_case_1:
+    isbn1 = bookService.create_book('demo')
+    assert_equals('ISBN1', isbn1)
+    isbn2 = bookService.create_book('demo2')
+    assert_equals('ISBN2', isbn2)
+    # möglich, aber eh klar: assert_not_same(isbn1, isbn2)
+    assert_call_count(isbngeneratorServiceMock, 2)
+
+# Interpretation des Testfehlschlags
+
+assert_equal(isbn) ->
+    "Der BooksService enthält einen Fehler"
+assert_call_count
+    "Der BooksService entspricht nicht dem im Modell festgelegten Ablauf"

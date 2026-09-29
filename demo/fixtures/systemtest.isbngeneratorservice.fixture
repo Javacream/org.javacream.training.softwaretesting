@@ -1,0 +1,15 @@
+rest_endpoint = "https://isbns"
+isbngeneratorService = IsbnGeneratorServiceImpl(rest_endpoint, "Test", "dk")
+
+# Systemtest
+
+isbngenerator_service_test_case_1:
+    isbn1 = isbngeneratorService.create_isbn()
+    assert_not_null(isbn1)
+    isbn2 = bookService.create_isbn()
+    assert_not_null(isbn2)
+    assert_not_same(isbn1, isbn2)
+
+# Interpretation des Testfehlschlags
+
+"Das System IsbnGenerator funktioniert irgendwo nicht"

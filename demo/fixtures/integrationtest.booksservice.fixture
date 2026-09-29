@@ -1,0 +1,23 @@
+rest_endpoint = "https://isbns"
+http_mock = HttpMock(rest_endpoint)
+http_mock.expect('GET').and_return({status=200, body={'ISBN1'}})
+http_mock.expect('GET').and_return({status=200, body={'ISBN2'}})
+http_mock_replay()
+
+database_mock = DatabaseMock()
+database_mock.expect(...).and_return(...)
+isbngeneratorService = IsbnGeneratorServiceImpl(rest_endpoint, "Test", "dk")
+booksService = BooksServiceImpl(database:mock, isbngeneratorService)
+
+# Systemtest, IsbnGeneratorService wird integriert
+
+books_service_test_case_1:
+    isbn1 = bookService.create_book('demo')
+    assert_not_null(isbn1)
+    isbn2 = bookService.create_book('demo2')
+    assert_not_null(isbn2)
+    assert_not_same(isbn1, isbn2)
+
+# Interpretation des Testfehlschlags
+
+"Das System funktioniert irgendwo nicht"
