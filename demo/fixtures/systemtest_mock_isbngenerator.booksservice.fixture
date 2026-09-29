@@ -6,3 +6,12 @@ isbngeneratorServiceMock.replay()
 booksService = BooksService(database, isbngeneratorService)
 
 # Systemtest, es werden aber nur die Sequenzen des BooksService getestst (-> 'Unittest')
+
+books_service_test_case_1:
+    isbn1 = bookService.create_book('demo')
+    assert_equals('ISBN1', isbn1)
+    isbn2 = bookService.create_book('demo2')
+    assert_equals('ISBN2', isbn2)
+    # möglich, aber eh klar: assert_not_same(isbn1, isbn2)
+    assert_call_count(isbngeneratorServiceMock, 2)
+
