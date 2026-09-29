@@ -1,0 +1,5 @@
+services:
+  db:
+    image: javacream/bookdatabase:1.0
+  webserver:
+    image: javacream/bookwebapp:1.0
