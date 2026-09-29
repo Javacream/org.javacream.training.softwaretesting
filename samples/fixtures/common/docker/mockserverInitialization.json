@@ -1,0 +1,17 @@
+[
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/users"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "body": "[{\"id\": 201, \"name\": \"Local Mock User One\", \"username\": \"localuser1\", \"email\": \"local1@test.example\"}, {\"id\": 202, \"name\": \"Local Mock User Two\", \"username\": \"localuser2\", \"email\": \"local2@test.example\"}]"
+    }
+  }
+]

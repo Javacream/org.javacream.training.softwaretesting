@@ -1,0 +1,12 @@
+services:
+  mockserver:
+    image: mockserver/mockserver:8.0.0
+    ports:
+      - "1080:1080"
+    environment:
+      MOCKSERVER_INITIALIZATION_JSON_PATH: /config/mockserverInitialization.json
+    volumes:
+      - type: bind
+        source: ./mockserverInitialization.json
+        target: /config/mockserverInitialization.json
+        read_only: true
