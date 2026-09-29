@@ -1,0 +1,13 @@
+rest_endpoint = "https://isbns"
+database = {'db_server', 'user', 'pwd'}
+isbngeneratorService = IsbnGeneratorServiceImpl(rest_endpoint, "Test", "dk")
+booksService = BooksServiceImpl(database, isbngeneratorService)
+
+# Systemtest, IsbnGeneratorService wird integriert
+
+books_service_test_case_1:
+    isbn1 = bookService.create_book('demo')
+    assert_not_null(isbn1)
+    isbn2 = bookService.create_book('demo2')
+    assert_not_null(isbn2)
+    assert_not_same(isbn1, isbn2)

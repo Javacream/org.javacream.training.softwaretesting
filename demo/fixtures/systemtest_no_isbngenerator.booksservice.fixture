@@ -1,0 +1,5 @@
+database = {'db_server', 'user', 'pwd'}
+isbngeneratorService = Dummy(IsbnGeneratorService)
+booksService = BooksService(database, isbngeneratorService)
+
+# Systemtest, es werden aber nur die Sequenzen des BooksService getestst (-> 'Unittest')

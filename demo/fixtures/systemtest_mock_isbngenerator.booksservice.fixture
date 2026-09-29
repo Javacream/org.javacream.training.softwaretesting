@@ -1,0 +1,8 @@
+database = {'db_server', 'user', 'pwd'}
+isbngeneratorServiceMock = Mock(IsbnGeneratorService)
+isbngeneratorServiceMock.expect(create_isbn).and_return('ISBN1')
+isbngeneratorServiceMock.expect(create_isbn).and_return('ISBN2')
+isbngeneratorServiceMock.replay()
+booksService = BooksService(database, isbngeneratorService)
+
+# Systemtest, es werden aber nur die Sequenzen des BooksService getestst (-> 'Unittest')
